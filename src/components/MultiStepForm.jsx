@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { styled } from "@mui/material";
 import {
   Container,
   Paper,
@@ -27,6 +28,13 @@ const MultiStepForm = () => {
     zipCode: "",
   });
   const [errors, setErrors] = useState({});
+
+  // const StyledPaper = styled(Paper)({
+  //   textAlign: "center",
+  //   color: "black",
+  //   height: 60,
+  //   lineHeight: "60px",
+  // });
 
   useEffect(() => {
     const savedFormData = localStorage.getItem("formData");
@@ -57,6 +65,8 @@ const MultiStepForm = () => {
       else if (!/\S+@\S+\.\S+/.test(formData.email))
         tempErrors.email = "Email is invalid";
       if (!formData.phone) tempErrors.phone = "Phone is required";
+      else if (!/^\d{10}$/.test(formData.phone))
+        tempErrors.phone = "Phone is required";
     } else if (activeStep === 1) {
       if (!formData.address1)
         tempErrors.address1 = "Address Line 1 is required";
@@ -78,7 +88,8 @@ const MultiStepForm = () => {
   return (
     <Container component="main" maxWidth="sm">
       <Paper
-        variant="outlined"
+        variant="elevation"
+        elevation={3}
         sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}
       >
         <Stepper activeStep={activeStep}>
