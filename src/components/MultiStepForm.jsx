@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { styled } from "@mui/material";
+import StepButton from "@mui/material/StepButton";
+
 import {
   Container,
   Paper,
@@ -27,6 +29,8 @@ const MultiStepForm = () => {
     state: "",
     zipCode: "",
   });
+  const [completed, setCompleted] = React.useState({});
+
   const [errors, setErrors] = useState({});
 
   // const StyledPaper = styled(Paper)({
@@ -55,6 +59,12 @@ const MultiStepForm = () => {
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  const handleStep = (step) => () => {
+    if (validateForm()) {
+      setActiveStep(step);
+    }
   };
 
   const validateForm = () => {
@@ -92,13 +102,22 @@ const MultiStepForm = () => {
         elevation={3}
         sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}
       >
-        <Stepper activeStep={activeStep}>
+        <Stepper nonLinear activeStep={activeStep}>
+          {steps.map((label, index) => (
+            <Step key={label} completed={completed[index]}>
+              <StepButton color="green" onClick={handleStep(index)}>
+                {label}
+              </StepButton>
+            </Step>
+          ))}
+        </Stepper>
+        {/* <Stepper activeStep={activeStep}>
           {steps.map((label) => (
             <Step key={label}>
               <StepLabel>{label}</StepLabel>
             </Step>
           ))}
-        </Stepper>
+        </Stepper> */}
         <Box sx={{ mt: 3 }}>
           {activeStep === 0 && (
             <PersonalInformation
