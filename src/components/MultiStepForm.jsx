@@ -96,12 +96,14 @@ const MultiStepForm = () => {
         elevation={3}
         sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}
       >
-        <Stepper nonLinear activeStep={activeStep}>
+        <Stepper
+          sx={{ flexWrap: { xs: "wrap", sm: "nowrap" } }}
+          nonLinear
+          activeStep={activeStep}
+        >
           {steps.map((label, index) => (
             <Step key={label} completed={completed[index]}>
-              <StepButton color="green" onClick={handleStep(index)}>
-                {label}
-              </StepButton>
+              <StepButton conClick={handleStep(index)}>{label}</StepButton>
             </Step>
           ))}
         </Stepper>
