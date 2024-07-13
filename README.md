@@ -1,3 +1,8 @@
+############################################################
+This app uses different React JS concepts along with Material UI components such as Stepper, Box, etc.
+For animation React Spring is used on the react components.
+############################################################
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
