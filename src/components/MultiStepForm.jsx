@@ -1,16 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { styled } from "@mui/material";
 import StepButton from "@mui/material/StepButton";
+import { useSpring, animated } from "@react-spring/web";
 
-import {
-  Container,
-  Paper,
-  Stepper,
-  Step,
-  StepLabel,
-  Button,
-  Box,
-} from "@mui/material";
+import { Container, Paper, Stepper, Step, Button, Box } from "@mui/material";
 import PersonalInformation from "./PersonalInformation";
 import AddressInformation from "./AddressInformation";
 import Confirmation from "./Confirmation";
@@ -33,12 +25,13 @@ const MultiStepForm = () => {
 
   const [errors, setErrors] = useState({});
 
-  // const StyledPaper = styled(Paper)({
-  //   textAlign: "center",
-  //   color: "black",
-  //   height: 60,
-  //   lineHeight: "60px",
-  // });
+  const props = useSpring({
+    from: { opacity: 0, transform: "scale(0.5)" },
+    to: { opacity: 1, transform: "scale(1)" },
+    config: { duration: 1000 }, // Set the duration to 1000ms (1 second)
+  });
+
+  const AnimatedPaper = animated(Paper);
 
   useEffect(() => {
     const savedFormData = localStorage.getItem("formData");
@@ -97,7 +90,8 @@ const MultiStepForm = () => {
 
   return (
     <Container component="main" maxWidth="sm">
-      <Paper
+      <AnimatedPaper
+        style={props}
         variant="elevation"
         elevation={3}
         sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}
@@ -155,7 +149,7 @@ const MultiStepForm = () => {
             )}
           </Box>
         </Box>
-      </Paper>
+      </AnimatedPaper>
     </Container>
   );
 };
