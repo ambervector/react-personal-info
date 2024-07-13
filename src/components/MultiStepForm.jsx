@@ -105,13 +105,7 @@ const MultiStepForm = () => {
             </Step>
           ))}
         </Stepper>
-        {/* <Stepper activeStep={activeStep}>
-          {steps.map((label) => (
-            <Step key={label}>
-              <StepLabel>{label}</StepLabel>
-            </Step>
-          ))}
-        </Stepper> */}
+
         <Box sx={{ mt: 3 }}>
           {activeStep === 0 && (
             <PersonalInformation
@@ -129,11 +123,16 @@ const MultiStepForm = () => {
           )}
           {activeStep === 2 && <Confirmation formData={formData} />}
           <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 2 }}>
-            {activeStep !== 0 && (
+            {!activeStep ? (
+              <Button disabled onClick={handleBack} sx={{ mr: 1 }}>
+                Back
+              </Button>
+            ) : (
               <Button onClick={handleBack} sx={{ mr: 1 }}>
                 Back
               </Button>
             )}
+
             {activeStep === steps.length - 1 ? (
               <Button
                 variant="contained"
