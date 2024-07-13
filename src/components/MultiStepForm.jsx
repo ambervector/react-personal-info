@@ -103,7 +103,7 @@ const MultiStepForm = () => {
         >
           {steps.map((label, index) => (
             <Step key={label} completed={completed[index]}>
-              <StepButton conClick={handleStep(index)}>{label}</StepButton>
+              <StepButton onClick={handleStep(index)}>{label}</StepButton>
             </Step>
           ))}
         </Stepper>
