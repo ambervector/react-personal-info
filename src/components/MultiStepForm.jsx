@@ -10,13 +10,14 @@ import Confirmation from "./Confirmation";
 const steps = ["Personal Information", "Address Information", "Confirmation"];
 
 const MultiStepForm = () => {
+  const [darkTheme, setDarkTheme] = useState(true);
   const [activeStep, setActiveStep] = useState(0);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     address1: "",
-    address2: "",
+    address2: "", 
     city: "",
     state: "",
     zipCode: "",
