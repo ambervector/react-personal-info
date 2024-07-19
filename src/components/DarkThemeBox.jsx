@@ -16,7 +16,7 @@ export default function DarkThemeBox({ darkOn, setDarkOn }) {
     >
       {darkOn ? <BedtimeIcon /> : <LightModeIcon />}
       <Tooltip
-        title={`Switch it ${darkOn ? "OFF" : "ON"} for ${
+        title={`Switch it ${darkOn ? "ON" : "OFF"} for ${
           darkOn ? "Light" : "Dark"
         } Mode!`}
       >
