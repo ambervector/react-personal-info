@@ -14,7 +14,7 @@ function App() {
   });
 
   let bodyEl = document.getElementsByTagName("body");
-  bodyEl[0].style.backgroundColor = `${darkOn ? "" : "#e0e0e0"}`;
+  bodyEl[0].style.backgroundColor = `${darkOn ? "" : "#dac8c8"}`;
   return (
     <div className="App">
       <ThemeProvider theme={darkTheme}>

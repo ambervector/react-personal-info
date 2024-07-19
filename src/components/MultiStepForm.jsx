@@ -102,8 +102,8 @@ const MultiStepForm = () => {
         sx={{
           my: { xs: 3, md: 6 },
           p: { xs: 2, md: 3 },
-          background: "#e0e0e0",
-          boxShadow: "20px 20px 60px #bebebe, -20px -20px 60px #ffffff",
+          background: "#dac8c8",
+          boxShadow: "20px 20px 60px #b9aaaa, -20px -20px 60px #fbe6e6",
         }}
       >
         <Stepper
