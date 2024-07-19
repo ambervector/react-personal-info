@@ -17,7 +17,7 @@ const MultiStepForm = () => {
     email: "",
     phone: "",
     address1: "",
-    address2: "", 
+    address2: "",
     city: "",
     state: "",
     zipCode: "",
@@ -89,13 +89,22 @@ const MultiStepForm = () => {
     }
   };
 
+  //  sx={{
+
+  //     }}
   return (
     <Container component="main" maxWidth="sm">
       <AnimatedPaper
+        id="animatedPaper"
         style={props}
         variant="elevation"
         elevation={3}
-        sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}
+        sx={{
+          my: { xs: 3, md: 6 },
+          p: { xs: 2, md: 3 },
+          background: "#e0e0e0",
+          boxShadow: "20px 20px 60px #bebebe, -20px -20px 60px #ffffff",
+        }}
       >
         <Stepper
           sx={{ flexWrap: { xs: "wrap", sm: "nowrap" } }}
