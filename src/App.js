@@ -140,7 +140,7 @@ function App() {
           }}
         ></Box>
 
-        <MultiStepForm />
+        <MultiStepForm darkOn={darkOn} />
       </ThemeProvider>
     </div>
   );

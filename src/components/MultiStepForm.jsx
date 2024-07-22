@@ -11,7 +11,7 @@ import gsap from "gsap";
 
 const steps = ["Personal Information", "Address Information", "Confirmation"];
 
-const MultiStepForm = () => {
+const MultiStepForm = ({ darkOn }) => {
   const [darkTheme, setDarkTheme] = useState(true);
   const [activeStep, setActiveStep] = useState(0);
   const [formData, setFormData] = useState({
@@ -104,7 +104,11 @@ const MultiStepForm = () => {
 
   //     }}
   return (
-    <Container component="main" maxWidth="sm" sx={{ opacity: "0.6" }}>
+    <Container
+      component="main"
+      maxWidth="sm"
+      sx={{ opacity: `${darkOn ? 1 : 0.6}` }}
+    >
       <AnimatedPaper
         id="animatedPaper"
         style={props}
