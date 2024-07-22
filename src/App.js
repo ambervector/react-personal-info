@@ -90,10 +90,10 @@ function App() {
         repeat: -1,
         // duration: "2s",
         yoyo: true,
-        rotation: 360,
+        rotation: 540,
         borderRadius: 0,
         duration: 1,
-        ease: "circ.inOut",
+        ease: "expo.out",
       }
     );
   }, []);
