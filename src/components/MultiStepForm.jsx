@@ -6,6 +6,8 @@ import { Container, Paper, Stepper, Step, Button, Box } from "@mui/material";
 import PersonalInformation from "./PersonalInformation";
 import AddressInformation from "./AddressInformation";
 import Confirmation from "./Confirmation";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const steps = ["Personal Information", "Address Information", "Confirmation"];
 
@@ -31,6 +33,15 @@ const MultiStepForm = () => {
     to: { opacity: 1, transform: "scale(1)" },
     config: { duration: 1000 }, // Set the duration to 1000ms (1 second)
   });
+
+  useGSAP(() => {
+    gsap.from(".btn", {
+      y: 800,
+      rotation: 360,
+      duration: 1,
+      stagger: 0.5,
+    });
+  }, []);
 
   const AnimatedPaper = animated(Paper);
 
@@ -136,7 +147,12 @@ const MultiStepForm = () => {
           {activeStep === 2 && <Confirmation formData={formData} />}
           <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 2 }}>
             {!activeStep ? (
-              <Button disabled onClick={handleBack} sx={{ mr: 1 }}>
+              <Button
+                className="btn"
+                disabled
+                onClick={handleBack}
+                sx={{ mr: 1 }}
+              >
                 Back
               </Button>
             ) : (
@@ -147,6 +163,7 @@ const MultiStepForm = () => {
 
             {activeStep === steps.length - 1 ? (
               <Button
+                className="btn"
                 variant="contained"
                 color="primary"
                 onClick={handleSubmit}
@@ -154,7 +171,12 @@ const MultiStepForm = () => {
                 Submit
               </Button>
             ) : (
-              <Button variant="contained" color="primary" onClick={handleNext}>
+              <Button
+                className="btn"
+                variant="contained"
+                color="primary"
+                onClick={handleNext}
+              >
                 Next
               </Button>
             )}
