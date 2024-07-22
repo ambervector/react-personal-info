@@ -104,7 +104,7 @@ const MultiStepForm = () => {
 
   //     }}
   return (
-    <Container component="main" maxWidth="sm">
+    <Container component="main" maxWidth="sm" sx={{ opacity: "0.6" }}>
       <AnimatedPaper
         id="animatedPaper"
         style={props}

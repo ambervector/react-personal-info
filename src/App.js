@@ -57,8 +57,8 @@ function App() {
         yoyo: true,
       },
       {
-        x: 0,
-        y: 20,
+        x: 250,
+        y: 500,
         z: 2,
         repeat: -1,
         // duration: "2s",
@@ -66,6 +66,7 @@ function App() {
         rotation: 360,
         borderRadius: 100,
         duration: 3,
+        scale: 2,
         ease: "circ.inOut",
       }
     );
@@ -93,6 +94,7 @@ function App() {
         rotation: 540,
         borderRadius: 0,
         duration: 1,
+        scale: 2,
         ease: "expo.out",
       }
     );
